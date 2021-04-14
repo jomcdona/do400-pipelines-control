@@ -23,5 +23,13 @@ pipeline {
                 }
             }
         }
+        stage ('Deploy') {
+            when {
+               expression { env.GIT_BRANCH == 'origin/master' }
+            }
+            steps {
+                echo 'Deploying ...'
+            }
+       }
     }
 }
